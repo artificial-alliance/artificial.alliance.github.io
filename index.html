@@ -3,8 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon</title>
+  <title>Artificial Alliance</title>
+
+  <!-- Retro sci-fi mono font for main title -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --aa-green: #00ff6a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -12,29 +24,92 @@
       align-items: center;
       justify-content: center;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050508;
+      background: radial-gradient(circle at top, #101018 0, #050508 45%, #000 100%);
       color: #f5f5f5;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* CRT scanline overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.05) 0px,
+          rgba(255, 255, 255, 0.05) 1px,
+          transparent 2px,
+          transparent 3px
+        );
+      mix-blend-mode: soft-light;
+      opacity: 0.18;
+      z-index: 10;
+    }
+
+    /* Slight vignette / CRT edge darkening */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at center, transparent 0%, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
+      z-index: 9;
     }
 
     .card {
       text-align: center;
       padding: 2.5rem 3rem;
       border-radius: 1.5rem;
-      border: 1px solid #00ff6a;                 /* bright lime border */
-      box-shadow: 0 0 12px #00ff6a,              /* outer glow */
-                  0 0 24px #00ff6a55;            /* softer glow */
+      border: 1px solid var(--aa-green);
+      box-shadow:
+        0 0 12px var(--aa-green),
+        0 0 24px rgba(0, 255, 106, 0.35);
+      background: rgba(3, 5, 8, 0.88);
+      backdrop-filter: blur(4px);
+      position: relative;
+      z-index: 11;
+      animation: crt-flicker 3s infinite;
     }
 
-    h1, h2 {
-      letter-spacing: 0.06em;
+    /* Main title – Share Tech Mono */
+    h1 {
+      margin: 0 0 0.75rem 0;
+      font-family: 'Share Tech Mono', monospace;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       font-size: 1.4rem;
-      margin-bottom: 0.75rem;
+      color: var(--aa-green);
+      text-shadow: 0 0 8px rgba(0, 255, 106, 0.7);
+    }
+
+    /* Boot/Initializing line – system mono + blinking cursor */
+    h2 {
+      margin: 0 0 0.75rem 0;
+      font-family: "Lucida Console", Monaco, monospace;
+      text-transform: none;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      color: #d7ffd7;
+      opacity: 0.94;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: "_";
+      margin-left: 4px;
+      color: var(--aa-green);
+      animation: cursor-blink 0.8s steps(2, start) infinite;
     }
 
     p {
       margin: 0.35rem 0;
       opacity: 0.85;
+      font-size: 0.9rem;
     }
 
     .tag {
@@ -42,13 +117,33 @@
       margin-top: 1.2rem;
       padding: 0.35rem 0.9rem;
       border-radius: 999px;
-      border: 1px solid #00ff6a;                /* lime border */
-      color: #00ff6a;                           /* lime text */
-      background: rgba(0, 255, 106, 0.08);       /* faint green tint */
-      box-shadow: 0 0 8px #00ff6a88;             /* glow */
+      border: 1px solid var(--aa-green);
+      color: var(--aa-green);
+      background: rgba(0, 255, 106, 0.08);
+      box-shadow: 0 0 8px rgba(0, 255, 106, 0.55);
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
+    }
+
+    @keyframes cursor-blink {
+      0%, 49% {
+        opacity: 1;
+      }
+      50%, 100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes crt-flicker {
+      0%   { opacity: 0.97; transform: translateY(0); }
+      1%   { opacity: 1; }
+      50%  { opacity: 0.98; }
+      52%  { opacity: 1; }
+      80%  { opacity: 0.99; transform: translateY(0); }
+      81%  { opacity: 0.96; transform: translateY(0.2px); }
+      82%  { opacity: 1;   transform: translateY(0); }
+      100% { opacity: 0.98; }
     }
   </style>
 </head>
@@ -56,7 +151,7 @@
   <div class="card">
     <h1>ARTIFICIAL ALLIANCE</h1>
     <h2>Initializing...</h2>
-    <p>Site under construction.</p>
+
   </div>
 </body>
 </html>
