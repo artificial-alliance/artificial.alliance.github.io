@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Artificial Alliance</title>
 
-  <!-- Retro sci-fi mono font for main title -->
+  <!-- Share Tech Mono for main title -->
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --aa-green: #00ff6a;
+      --aa-green: #8bff87; /* softer lime */
+      --aa-bg: #050609;
+      --aa-card: #0b0f16;
     }
 
     * {
@@ -23,127 +25,87 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #101018 0, #050508 45%, #000 100%);
+      background:
+        radial-gradient(circle at top, #151926 0, #050609 45%, #020308 100%);
       color: #f5f5f5;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* CRT scanline overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        repeating-linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0.05) 0px,
-          rgba(255, 255, 255, 0.05) 1px,
-          transparent 2px,
-          transparent 3px
-        );
-      mix-blend-mode: soft-light;
-      opacity: 0.18;
-      z-index: 10;
-    }
-
-    /* Slight vignette / CRT edge darkening */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at center, transparent 0%, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
-      z-index: 9;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .card {
       text-align: center;
       padding: 2.5rem 3rem;
-      border-radius: 1.5rem;
-      border: 1px solid var(--aa-green);
+      border-radius: 1.25rem;
+      border: 1px solid rgba(139, 255, 135, 0.7);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.02), transparent 40%),
+        var(--aa-card);
       box-shadow:
-        0 0 12px var(--aa-green),
-        0 0 24px rgba(0, 255, 106, 0.35);
-      background: rgba(3, 5, 8, 0.88);
-      backdrop-filter: blur(4px);
+        0 18px 40px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.02),
+        0 0 18px rgba(139, 255, 135, 0.18);
+      max-width: 420px;
+      width: 90%;
       position: relative;
-      z-index: 11;
-      animation: crt-flicker 3s infinite;
     }
 
-    /* Main title – Share Tech Mono */
+    /* very subtle "scanline" texture just inside the card */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.02) 0px,
+          rgba(255, 255, 255, 0.02) 1px,
+          transparent 2px,
+          transparent 3px
+        );
+      opacity: 0.12;
+      border-radius: inherit;
+      mix-blend-mode: soft-light;
+    }
+
     h1 {
       margin: 0 0 0.75rem 0;
       font-family: 'Share Tech Mono', monospace;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       color: var(--aa-green);
-      text-shadow: 0 0 8px rgba(0, 255, 106, 0.7);
+      text-shadow: 0 0 6px rgba(139, 255, 135, 0.4);
     }
 
-    /* Boot/Initializing line – system mono + blinking cursor */
     h2 {
       margin: 0 0 0.75rem 0;
       font-family: "Lucida Console", Monaco, monospace;
-      text-transform: none;
-      font-size: 1rem;
+      font-size: 0.95rem;
       letter-spacing: 0.08em;
-      color: #d7ffd7;
-      opacity: 0.94;
-      position: relative;
-      display: inline-block;
-    }
-
-    h2::after {
-      content: "_";
-      margin-left: 4px;
-      color: var(--aa-green);
-      animation: cursor-blink 0.8s steps(2, start) infinite;
+      color: #d8fddb;
+      opacity: 0.9;
     }
 
     p {
       margin: 0.35rem 0;
-      opacity: 0.85;
+      opacity: 0.82;
       font-size: 0.9rem;
     }
 
     .tag {
       display: inline-block;
-      margin-top: 1.2rem;
-      padding: 0.35rem 0.9rem;
+      margin-top: 1.4rem;
+      padding: 0.35rem 1.1rem;
       border-radius: 999px;
-      border: 1px solid var(--aa-green);
+      border: 1px solid rgba(139, 255, 135, 0.85);
       color: var(--aa-green);
-      background: rgba(0, 255, 106, 0.08);
-      box-shadow: 0 0 8px rgba(0, 255, 106, 0.55);
-      font-size: 0.8rem;
+      background: radial-gradient(circle at top, rgba(139, 255, 135, 0.18), transparent 70%);
+      box-shadow:
+        0 0 10px rgba(139, 255, 135, 0.45),
+        0 0 0 1px rgba(0, 0, 0, 0.6);
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    @keyframes cursor-blink {
-      0%, 49% {
-        opacity: 1;
-      }
-      50%, 100% {
-        opacity: 0;
-      }
-    }
-
-    @keyframes crt-flicker {
-      0%   { opacity: 0.97; transform: translateY(0); }
-      1%   { opacity: 1; }
-      50%  { opacity: 0.98; }
-      52%  { opacity: 1; }
-      80%  { opacity: 0.99; transform: translateY(0); }
-      81%  { opacity: 0.96; transform: translateY(0.2px); }
-      82%  { opacity: 1;   transform: translateY(0); }
-      100% { opacity: 0.98; }
+      letter-spacing: 0.16em;
     }
   </style>
 </head>
@@ -151,7 +113,6 @@
   <div class="card">
     <h1>ARTIFICIAL ALLIANCE</h1>
     <h2>Initializing...</h2>
-
   </div>
 </body>
 </html>
