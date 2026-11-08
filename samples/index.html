@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#100f1c" />
+<meta name="description" content="An evolving collection of melodic synth loops and experiments in sound from Artificial Alliance."/>
+<title>Samples — Artificial Alliance</title>
+<link rel="stylesheet" href="samples.css"/>
+</head>
+<body>
+<div class="shell">
+<header class="hero grained" id="top">
+  <div class="hero-art" aria-hidden="true"><div class="hero-image" id="heroImage"></div><div class="hero-orbit"></div></div>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="wordmark" href="../index.html" aria-label="Artificial Alliance, home"><img src="../assets/artificial-alliance-mark.svg" alt=""/><span>ARTIFICIAL ALLIANCE</span></a>
+    <button class="mobile-menu" id="menu" aria-expanded="false" aria-controls="navLinks" type="button">Menu +</button>
+    <div class="nav-links" id="navLinks"><a href="../index.html">Home</a><a href="#listen" aria-current="page">Samples</a><a href="../index.html#directions">Other work</a><a class="nav-index" href="../index.html#about">About <span aria-hidden="true">↗</span></a></div>
+  </nav>
+  <div class="hero-content">
+    <div class="hero-upper"><span class="mini-rule"></span><span class="eyebrow">SAMPLES / THE COLLECTION</span></div>
+    <div class="hero-main"><h1>SOUND<br><span>MATTER.</span></h1><div class="hero-desc"><p>Listen to early sound sketches, and follow the first collection as it takes shape.</p><a href="#listen" class="arrow-link">Enter the listening room <span aria-hidden="true">↘</span></a></div></div>
+    <div class="hero-end"><span>Melodic loops &amp; experiments in sound</span><span class="series">AA / SOUND STUDIES</span></div>
+  </div>
+</header>
+<nav class="index-bar" aria-label="Explore this page">
+  <a href="#listen"><span class="index-no">01 / FEATURED</span><span class="index-name">Listen <span aria-hidden="true">↗</span></span></a>
+  <a href="#archive"><span class="index-no">02 / ALL COLLECTIONS</span><span class="index-name">Archive <span aria-hidden="true">↗</span></span></a>
+  <a href="#outro"><span class="index-no">03 / BEYOND</span><span class="index-name">Keep exploring <span aria-hidden="true">↗</span></span></a>
+</nav>
+<main>
+  <section class="listening" id="listen" aria-labelledby="listenTitle">
+    <div class="section-heading"><div class="head-aside"><span class="section-kicker">01 / FEATURED LISTENING</span><p>One collection at a time, with room to listen.</p></div><h2 id="listenTitle">AN IDEA<br>IN <em>motion.</em></h2></div>
+    <div class="featured-intro">
+      <div class="featured-intro__title"><span class="featured-tag"><span class="featured-pip" aria-hidden="true"></span> UPCOMING / 001</span><h3>Melodic loops.</h3><p>Our first collection is still in development. This listening space is where featured pack previews will live once they're ready.</p></div>
+      <a class="featured-intro__link" href="#archive">Explore the collection <span aria-hidden="true">↘</span></a>
+    </div>
+    <div class="listening-note"><span class="asterisk" aria-hidden="true">✳</span><p><strong>Listen to the interface demo.</strong> Choose a study below to try the player. These three original synthesized sketches are not samples from the upcoming pack.</p></div>
+    <div class="deck" id="deck">
+      <div class="visualizer" id="visualizer" aria-hidden="true"><canvas id="visualCanvas"></canvas><div class="visual-top"><span>AA / SOUND STUDIES</span><span id="visualCounter">01 / 03</span></div><div class="visual-bottom"><span>FORM / FREQUENCY</span><strong id="visualName">HARMONIC</strong></div></div>
+      <div class="desk">
+        <div class="desk-head"><span>THE AUDIO DESK / DEMO</span><span>03 ORIGINAL STUDIES</span></div>
+        <div class="desk-title"><p class="desk-overline">NOW SELECTED <span id="selectionNumber">01 / 03</span></p><h3 id="studyTitle">Harmonic</h3><p class="study-description" id="studyDescription">Soft chords, a few notes in the air.</p><p class="playback-state" role="status" aria-live="polite"><span class="state-pip" aria-hidden="true"></span><span id="playbackStatusText">READY TO PLAY</span></p></div>
+        <div class="transport"><div class="transport-control"><button type="button" class="play" id="playButton" aria-label="Play selected study"><span id="playIcon" aria-hidden="true">▶</span></button><span class="transport-action" id="transportAction">PLAY<br>STUDY</span></div><div class="track-timing"><div class="time-line"><span id="timeCurrent">0:00</span><span class="seek-instruction">DRAG TO SEEK <span aria-hidden="true">↔</span></span><span id="timeDuration">0:10</span></div><div class="wave-wrap"><canvas id="waveform" aria-hidden="true"></canvas><input id="seek" type="range" min="0" max="1000" step="1" value="0" aria-label="Seek within selected study"/></div></div></div>
+        <div class="transport-meta"><button class="loop-toggle" id="loopButton" type="button" aria-pressed="false"><span class="loop-icon" aria-hidden="true">↻</span> Loop off</button><label class="volume"><span>VOLUME</span><input type="range" id="volume" min="0" max="100" value="80" aria-label="Volume"/></label></div>
+        <div class="study-list" aria-label="Choose an audio study"><div class="study-heading"><span>CHOOSE A SOUND</span><span>SELECT TO LISTEN <span aria-hidden="true">↘</span></span></div>
+          <button class="study-item active" type="button" data-study="0" aria-label="Play Harmonic" aria-pressed="true"><span>01</span><strong>Harmonic</strong><small>Soft / sustained</small><i aria-hidden="true">▶</i></button>
+          <button class="study-item" type="button" data-study="1" aria-label="Play Sequence" aria-pressed="false"><span>02</span><strong>Sequence</strong><small>Plucked / drifting</small><i aria-hidden="true">▶</i></button>
+          <button class="study-item" type="button" data-study="2" aria-label="Play Rhythm" aria-pressed="false"><span>03</span><strong>Rhythm</strong><small>Low / moving</small><i aria-hidden="true">▶</i></button>
+        </div>
+        <p class="desk-disclaimer">PLAYABLE INTERFACE STUDIES / NOT RELEASED SAMPLES</p>
+      </div>
+    </div>
+  </section>
+  <section class="archive grained" id="archive" aria-labelledby="archiveTitle">
+    <header class="archive-head">
+      <span class="section-kicker">02 / THE COLLECTION</span>
+      <div class="archive-head__layout">
+        <h2 id="archiveTitle">THE<br>ARCHIVE<span class="archive-period">.</span></h2>
+        <div class="archive-head__aside"><span>RELEASE INDEX / 001—</span><p>A home for every sample pack. For now, one collection is taking shape; this archive will grow with the music.</p></div>
+      </div>
+    </header>
+    <div class="archive-column-head"><span>PACK / 001</span><span>STATUS / IN DEVELOPMENT</span></div>
+    <article class="pack-entry" id="melodic-loops" aria-labelledby="packTitle">
+      <a class="pack-entry__hit" href="melodic-loops/" aria-label="View Melodic Loops collection page"></a>
+      <div class="pack-cover" role="img" aria-label="Concept artwork for an upcoming melodic synth loop collection: ultraviolet interference pattern with bold cream lettering">
+        <div class="pack-cover__grain" aria-hidden="true"></div>
+        <div class="pack-cover__head"><span>ARTIFICIAL ALLIANCE</span><span>001 / WORKING ART</span></div>
+        <div class="pack-cover__orbit" aria-hidden="true"></div>
+        <div class="pack-cover__name">MELODIC<br>LOOPS<span>.</span></div>
+        <div class="pack-cover__foot"><span>SOUND / COLLECTION</span><span>CONCEPT / NOT FINAL ART</span></div>
+      </div>
+      <div class="pack-information">
+        <div class="pack-status"><span class="status-glow" aria-hidden="true"></span> IN DEVELOPMENT <span>01 / FIRST COLLECTION</span></div>
+        <div class="pack-information__main"><span class="pack-overline">MELODIC SYNTH LOOPS</span><h3 id="packTitle">A sound worth<br>keeping.</h3><p>The first collection is taking shape around melodic synth loops for making music. Starting with a sound worth keeping, then leaving room for someone else to take it somewhere new.</p></div>
+        <dl class="pack-facts"><div><dt>TYPE</dt><dd>Melodic synth loops</dd></div><div><dt>PREVIEWS</dt><dd>Not available yet</dd></div><div><dt>RELEASE</dt><dd>In progress</dd></div></dl>
+        <div class="pack-entry__action" aria-hidden="true"><span>VIEW COLLECTION</span><span class="pack-entry__arrow">↗</span></div>
+        <details class="pack-more"><summary>Collection notes <span aria-hidden="true">↘</span></summary><div><p>This is the first planned sample-pack release for Artificial Alliance. Its final artwork, sounds, track count, and purchase details will be added as the collection develops.</p><p>Open the collection page to follow its development. Audio previews and purchasing will be added when a finished pack is available.</p></div></details>
+      </div>
+    </article>
+    <div class="archive-end"><span class="archive-end__mark" aria-hidden="true">↗</span><p>THE ARCHIVE BEGINS HERE.</p><span>New collections will join this index as they're finished.</span></div>
+  </section>
+  <section class="outro" id="outro"><div><span class="section-kicker">03 / BEYOND THE SAMPLES</span><h2>THERE'S<br>MORE TO <em>make.</em></h2></div><div class="outro-side"><p>Sounds are only one part of Artificial Alliance. Instruments, software, hardware, and ideas are growing alongside them.</p><a class="arrow-link" href="../index.html#directions">Explore the other directions <span aria-hidden="true">↗</span></a></div></section>
+</main>
+<footer class="footer"><div class="footer-top"><span>ARTIFICIAL ALLIANCE</span><a href="../index.html">Back to the studio ↑</a></div><div class="footer-bottom"><strong>KEEP<br>LISTENING.</strong><span>AN INDEPENDENT CREATIVE PROJECT</span></div></footer>
+</div>
+<audio id="audio" preload="metadata"></audio>
+<script src="samples.js" defer></script>
+</body></html>
